@@ -97,7 +97,7 @@
 
 </div>
       </div>
-      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">А
+      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
@@ -841,13 +841,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.addEventListener('change', function (e) {
-    if (e.target.matches('.swatch-input__input')) {
+    if (e.target.matches('input[type="radio"][name^="Color"]')) {
       const selectedColor = e.target.value.trim();
       renderSlidesForColor(selectedColor);
     }
   });
 
-  const initialInput = document.querySelector('.swatch-input__input:checked');
+  const initialInput = document.querySelector('input[type="radio"]:checked[name^="Color"]');
   const initialColor = initialInput ? initialInput.value.trim() : '';
   renderSlidesForColor(initialColor);
 });
